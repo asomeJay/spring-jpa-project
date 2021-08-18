@@ -13,6 +13,6 @@ class Item(
     val price: Int,
     val stockQuantity: Int,
 
-    @ManyToMany(mappedBy = "items")
+    @ManyToMany(mappedBy = "items", fetch = FetchType.LAZY)
     val categories: List<Category> = mutableListOf()
 )

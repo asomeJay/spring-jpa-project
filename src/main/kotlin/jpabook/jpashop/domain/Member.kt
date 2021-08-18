@@ -11,6 +11,6 @@ class Member(
     @Embedded
     val address: Address,
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     val orders: List<Order> = mutableListOf()
 )

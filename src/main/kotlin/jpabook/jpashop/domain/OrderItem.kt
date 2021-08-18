@@ -8,11 +8,11 @@ class OrderItem(
     @Column(name = "order_item_id")
     var id: Long? = null,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     val item: Item,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     val order: Order,
 

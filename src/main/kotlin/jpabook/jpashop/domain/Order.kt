@@ -10,18 +10,19 @@ class Order(
     @Column(name = "order_id")
     var id: Long?,
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     val member: Member,
 
-    @OneToMany(mappedBy = "order")
-    val orderItems:List<OrderItem> = arrayListOf(),
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    val orderItems: List<OrderItem> = arrayListOf(),
 
-    @OneToOne
-    @JoinColumn(name="delivery_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "delivery_id")
     val delivery: Delivery,
+
     val orderDate: LocalDateTime,
 
     @Enumerated(EnumType.STRING)
-    val status: OrderStatus
+    val status: OrderStatus,
 )

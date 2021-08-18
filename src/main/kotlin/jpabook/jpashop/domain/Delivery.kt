@@ -8,7 +8,7 @@ class Delivery(
     @Column(name = "delivery_id")
     var id: Long? = null,
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     val order: Order,
 
     @Embedded

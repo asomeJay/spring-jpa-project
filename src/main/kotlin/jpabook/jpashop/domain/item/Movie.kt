@@ -5,9 +5,9 @@ import javax.persistence.Entity
 
 @Entity
 class Movie (
-    override val name: String,
-    override val price: Int,
-    override val stockQuantity: Int,
+    val name: String,
+    val price: Int,
+    val stockQuantity: Int,
     val director:String,
     val isbn: String):
 

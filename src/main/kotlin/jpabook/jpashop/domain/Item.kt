@@ -8,11 +8,25 @@ import javax.persistence.*
 class Item(
     @Id @GeneratedValue
     @Column(name = "item_id")
-    val id: Long? = null,
-    val name: String,
-    val price: Int,
-    val stockQuantity: Int,
+    var id: Long? = null,
+    private var name: String,
+    private var price: Int,
+    private var stockQuantity: Int,
 
     @ManyToMany(mappedBy = "items", fetch = FetchType.LAZY)
-    val categories: List<Category> = mutableListOf()
-)
+    val categories: List<Category> = mutableListOf(),
+
+
+    ) {
+    fun addStock(quantity: Int): Unit {
+        this.stockQuantity += quantity
+    }
+
+    fun removeStock(quantity: Int) {
+        val restStock: Int = this.stockQuantity - quantity
+        if (restStock < 0) throw NotEnoughStockException("need more stock")
+
+        this.stockQuantity = restStock
+    }
+}
+

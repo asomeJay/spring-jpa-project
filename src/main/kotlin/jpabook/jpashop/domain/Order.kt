@@ -14,7 +14,7 @@ class Order(
     @JoinColumn(name = "member_id")
     val member: Member,
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val orderItems: List<OrderItem> = arrayListOf(),
 
     @OneToOne(fetch = FetchType.LAZY)

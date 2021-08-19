@@ -14,6 +14,7 @@ class MemberService(private val memberRepository: MemberRepository) {
         validateDuplicateMember(member)
         memberRepository.save(member)
         return member.id ?: throw IllegalStateException("No Member Id")
+//        return runCatching {  }
     }
 
     private fun validateDuplicateMember(member: Member) {

@@ -5,9 +5,9 @@ import javax.persistence.Entity
 
 @Entity
 class Album(
-    val name: String,
-    val price: Int,
-    val stockQuantity: Int,
+    override var name: String,
+    override var price: Int,
+    override var stockQuantity: Int,
     val artist: String,
     val etc: String):
     Item(name=name, price=price, stockQuantity = stockQuantity)

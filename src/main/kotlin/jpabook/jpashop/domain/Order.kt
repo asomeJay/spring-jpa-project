@@ -24,7 +24,7 @@ class Order(
     val orderDate: LocalDateTime = LocalDateTime.now(),
 
     @Enumerated(EnumType.STRING)
-    private var status: OrderStatus,
+    var status: OrderStatus,
 ) {
     // 생성 메서드
     companion object {

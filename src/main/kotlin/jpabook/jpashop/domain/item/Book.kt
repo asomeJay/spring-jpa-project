@@ -5,9 +5,9 @@ import javax.persistence.Entity
 
 @Entity
 class Book(
-    val name: String,
-    val price: Int,
-    val stockQuantity: Int,
+    override var name: String,
+    override var price: Int,
+    override var stockQuantity: Int,
     val author: String,
     val isbn: String):
     Item(name=name, price=price, stockQuantity=stockQuantity)
